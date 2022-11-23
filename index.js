@@ -68,6 +68,13 @@ app.get('/about', (req, res) => {
     res.render('about.ejs');
 });
 
+// API
+app.get('/api/testimonials', (req, res) => {
+    // The API endpoint for getting all testimonials
+    let testimonials = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+    res.json(testimonials);
+});
+
 // Run the server
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
